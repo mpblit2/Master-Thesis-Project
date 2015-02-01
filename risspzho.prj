@@ -1,0 +1,61 @@
+; ************************************************************
+; PROJECT:
+; AUTHOR:
+; ************************************************************
+
+; Micro + software running
+; ------------------------------------------------------------
+.MICRO "ATmega16"
+.TOOLCHAIN "GCC"
+.GCCPATH   "C:\WinAVR"
+.GCCMAKE   "makefile"
+.TARGET    "risspzho.hex"
+.SOURCE    "risspzho.c"
+
+.TRACE              ; Activate micro trace
+
+; Following lines are optional; if not included
+; exactly these values are taken by default
+; ------------------------------------------------------------
+.POWER VDD=5 VSS=0  ; Power nodes
+.CLOCK 1meg         ; Micro clock
+.STORE 250m         ; Trace (micro+signals) storage time
+
+; Micro nodes: RESET, AREF, PA0-PA7, PB0-PB7, PC0-PC7, PD0-PD7, ACO, TIM1OVF
+; Define here the hardware around the micro
+; ------------------------------------------------------------
+
+;                                                       not connect,
+;                    RS   R/W   E   4 bits interface   arbitrary nodes
+;                    ---  ---  ---  ----------------   ---------------
+
+Xdisp LCD(16 2 250K) PC2  PC1  PC3   PC7 PC6 PC5 PC4   nb3 nb2 nb1 nb0
+
+
+X1  EXTIN(1) PD0
+X2  EXTIN(0) PD1
+X3  EXTIN(1) PA0
+;X4  EXTIN(1) PA1
+
+XkeyPad  KEY4x4  PB4 PB5 PB6 PB7 PB0 PB1 PB2 PB3
+
+V4  PA1 VSS PULSE(0 5 0.25 0.25 0.25 0.5 1)
+
+;V3  PA0 VSS SIN(2.5 2.5 5)
+
+
+;V[inst_name]  node VSS PULSE(v_initial v_final t_delay t_rise t_fall t_width t_period)
+;V2  PD1 VSS PULSE(5 0 0.25 0.25 0.25 0.5 1)
+;V1  PD0 VSS PULSE(0 5 0.25 0.25 0.25 0.5 1)
+
+.PLOT V(PD0) V(PD1) V(PD4) V(PD6) V(PD5) V(PA0)  V(PA1)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+int (*wskf_int[5])(void);
+int (*wskf_P_ADC)(int);
+void (*wskf_void[2])(void);
+void (*wskf_w_float)(float);
+float (*wskf_P_Pom)(void);
+float (*wskf_P_Zad)(int);
+float (*wskf_R_PI)(int, float, float, float);
+
+
+wskf_int[0] = &Wybieg;
+wskf_int[1] = &Rozruch;
+wskf_int[2] = &Hamowanie;
+wskf_int[3] = &Klawiatura;
+wskf_int[4] = &Wychylenie_Nastawnika;
+
+wskf_P_ADC = &Przetwornik_ADC;
+
+wskf_void[0] = &Inicjalizacja_CPU;
+wskf_void[1] = &Pobierz_Wartosci;
+	
+wskf_w_float = &wyswietl_float;
+	
+wskf_P_Pom = &Prad_Pomierzony;
+	
+wskf_P_Zad = &Prad_Zadany;
+	
+wskf_R_PI = &Regulator_PI;
