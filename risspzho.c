@@ -1,10 +1,9 @@
 // ***************************gtvbh njm,********************************
-// Project: Rozruch impulsowy silnika szeregowego pradu stalego
-//				z hamowaniem odzyskowym
+// Project: Master Thesis Project
 //
-// Author: Janusz Tomaszewski, Piotr Szymanski
+// Author: Janusz Tomaszewski
 //
-// Module description: Regulator pr¹du typu PI
+// Module description: PI type regulator of current
 // ***********************************************************
 #define F_CPU 8000000UL
 
